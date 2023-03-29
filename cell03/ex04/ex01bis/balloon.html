@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      "
+    >
+      <div
+        onclick="ballClick()"
+        onmouseleave="ballHover()"
+        id="ball"
+        style="
+          width: 200px;
+          height: 200px;
+          background-color: rgb(255, 0, 0);
+          border-radius: 100%;
+        "
+      ></div>
+    </div>
+    <script>
+      function ballClick() {
+        changeColor();
+        changeSize();
+      }
+
+      function ballHover() {
+        hoverSize();
+        hoverColor();
+      }
+
+      function hoverSize() {
+        let ball = $("#ball");
+        let width = ball.height();
+        if (width > 200) {
+          ball.css({
+            height: width - 5 + "px",
+            width: width - 5 + "px",
+          });
+        }
+      }
+
+      function hoverColor() {
+        let ball = $("#ball");
+        let color = ball.css("background-color");
+        if (color === "rgb(255, 0, 0)") {
+          ball.css("background-color", "rgb(0, 0, 255)");
+        }
+        if (color === "rgb(0, 255, 0)") {
+          ball.css("background-color", "rgb(255, 0, 0)");
+        }
+        if (color === "rgb(0, 0, 255)") {
+          ball.css("background-color", "rgb(0, 255, 0)");
+        }
+      }
+
+      function changeSize() {
+        let ball = $("#ball");
+        let width = ball.height();
+        if (width < 420) {
+          ball.css({
+            height: width + 10 + "px",
+            width: width + 10 + "px",
+          });
+        }
+        if (width >= 420) {
+          ball.css({
+            height: "200px",
+            width: "200px",
+          });
+        }
+        if (width === 415) {
+          ball.css({
+            height: "200px",
+            width: "200px",
+          });
+        }
+      }
+
+      function changeColor() {
+        let ball = $("#ball");
+        let color = ball.css("background-color");
+        console.log(color);
+        if (color === "rgb(255, 0, 0)") {
+          ball.css("background-color", "rgb(0, 255, 0)");
+        }
+        if (color === "rgb(0, 255, 0)") {
+          ball.css("background-color", "rgb(0, 0, 255)");
+        }
+        if (color === "rgb(0, 0, 255)") {
+          ball.css("background-color", "rgb(255, 0, 0)");
+        }
+      }
+    </script>
+  </body>
+</html>

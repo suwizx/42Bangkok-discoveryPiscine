@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      "
+    >
+      <div
+        onclick="ballClick()"
+        onmouseleave="ballHover()"
+        id="ball"
+        style="
+          width: 200px;
+          height: 200px;
+          background-color: red;
+          border-radius: 100%;
+        "
+      ></div>
+    </div>
+    <script>
+      function ballClick() {
+        changeColor();
+        changeSize();
+      }
+
+      function ballHover() {
+        hoverSize();
+        hoverColor();
+      }
+
+      function hoverSize() {
+        let ball = document.getElementById("ball");
+        let width = ball.clientHeight;
+        if (width > 200) {
+          ball.style.height = width - 5 + "px";
+          ball.style.width = width - 5 + "px";
+        }
+      }
+
+      function hoverColor() {
+        let ball = document.getElementById("ball");
+        let color = ball.style.backgroundColor;
+        if (color == "red") {
+          ball.style.backgroundColor = "blue";
+        }
+        if (color == "green") {
+          ball.style.backgroundColor = "red";
+        }
+        if (color == "blue") {
+          ball.style.backgroundColor = "green";
+        }
+      }
+
+      function changeSize() {
+        let ball = document.getElementById("ball");
+        let width = ball.clientHeight;
+        if (width < 420) {
+          ball.style.height = width + 10 + "px";
+          ball.style.width = width + 10 + "px";
+        }
+        if (width >= 420) {
+          ball.style.height = "200px";
+          ball.style.width = "200px";
+        }
+        if (width == 415) {
+          ball.style.height = "200px";
+          ball.style.width = "200px";
+        }
+      }
+
+      function changeColor() {
+        let ball = document.getElementById("ball");
+        let color = ball.style.backgroundColor;
+        console.log(color);
+        if (color == "red") {
+          ball.style.backgroundColor = "green";
+        }
+        if (color == "green") {
+          ball.style.backgroundColor = "blue";
+        }
+        if (color == "blue") {
+          ball.style.backgroundColor = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

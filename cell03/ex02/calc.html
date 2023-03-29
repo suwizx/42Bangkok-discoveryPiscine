@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <input id="num1" type="text" />
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+      </select>
+      <input id="num2" type="text" />
+      <button onclick="calc()">Try me</button>
+    </div>
+    <script>
+      function calc() {
+        if (zeroCheck() && checkNum()) {
+          let num1 = Number(document.getElementById("num1").value);
+          let num2 = Number(document.getElementById("num2").value);
+          let operator = document.getElementById("operator").value;
+          alert(eval(num1 + operator + num2));
+          console.log(eval(num1 + operator + num2));
+        }
+      }
+
+      function checkNum() {
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+        if (
+          Number.isInteger(num1) &&
+          Number.isInteger(num2) &&
+          checkNumLess()
+        ) {
+          return true;
+        } else {
+          alert("Error :(");
+          return false;
+        }
+      }
+
+      function checkNumLess() {
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+        if (num1 <= 0 || num2 <= 0) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      function zeroCheck() {
+        let num1 = Number(document.getElementById("num1").value);
+        let operator = document.getElementById("operator").value;
+        let num2 = Number(document.getElementById("num2").value);
+        if (num2 == 0 && (operator == "/" || operator == "%")) {
+          alert("It’s over 9000!");
+          console.log(eval(num1 + operator + num2));
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      setTimeout(() => alert("Please, use me..."), 30000);
+    </script>
+  </body>
+</html>

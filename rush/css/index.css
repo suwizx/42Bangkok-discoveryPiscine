@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: .2s;
+    font-family: Consolas,'LINE Seed Sans TH';
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1000;
+}
+
+.main{
+    background-image: url("../img/home_bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+}
+
+.select{
+    width: 50%;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.main p{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 42px;
+    margin-top: 264px;
+}
+
